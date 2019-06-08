@@ -91,7 +91,6 @@ export default {
   },
   created() {
     this.getAuthor();
-    this.getId();
   }
 };
 </script>
