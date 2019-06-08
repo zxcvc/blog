@@ -61,7 +61,6 @@ export default {
 
       if (ret.data.success === true) {
         this.success = true;
-        localStorage.setItem('user',JSON.stringify({username:this.username}))
         this.open("注册成功", "success", 1500);
       }
     },

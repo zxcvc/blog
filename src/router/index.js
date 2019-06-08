@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
+import store from '../../store/store'
 export default new Router({
 
     routes: [{
@@ -41,7 +42,7 @@ export default new Router({
             component: () => import('../views/addArticle.vue'),
             beforeEnter: (to,from,next) => {
                 if (!localStorage.getItem('user')) {
-                    this.a.app.$store.commit('changeDialogFormVisible', true)
+                    store.commit('changeDialogFormVisible', true)
                 }else{
                     next()
                 }

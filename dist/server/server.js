@@ -20,7 +20,7 @@ const {
 app.use(bodyParser.json())
 
 app.listen(3000, () => {
-    console.log('ok=========')
+    console.log('ok=========3000')
 })
 
 app.get('/haveusername', async (req, res) => {
