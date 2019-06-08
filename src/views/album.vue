@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <ul class="row">
-      <li v-for="item in imgSrc" :key="item.src" class="col-lg-4 col-md-6 col-sm-12 myclass">
+      <li v-for="item in imgSrc" :key="item.src" class="col-lg-4 col-md-6  col-sm-6 col-xs-12 myclass">
         <img v-lazy="item.src" preview="item.id" preview-text="描述文字">
       </li>
     </ul>

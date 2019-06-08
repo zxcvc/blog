@@ -49,6 +49,7 @@ axios.defaults.headers = {
 Vue.prototype.$axios = axios
 Vue.prototype.$qs = qs
 Vue.filter('fmTime', function (val) {
+    if (!val) return ''
     let date = new Date(val)
     let y = date.getFullYear()
     let m = date.getMonth() + 1

@@ -4,9 +4,6 @@
     <div class="main" v-cloak>
       <router-view v-cloak></router-view>
     </div>
-    <!-- <footer class="footer">
-asdas 
-    </footer> -->
   </div>
 </template>  
 
@@ -40,8 +37,8 @@ export default {
     margin: 0;
   };
   .main {
-    padding-top: 6%;
-    padding-bottom: 6%;
+    padding-top: 1%;
+    // padding-bottom: 6%;
   };
   .footer{
     width: 100%;

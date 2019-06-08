@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <ul class="row">
-      <li class="col-lg-2 col-md-5 col-sm-10 col-xs-10">
+      <li class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
         <div class="body">
           <router-link :to="{path:'/album',query:{id:1}}" tag="div">
             <img src="https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg">
@@ -43,7 +43,7 @@ export default {
     li {
       padding: 0;
       margin: 1%;
-      height: 260px;
+      // height: 260px;
       background-color: rgb(128, 95, 95);
       display: flex;
       flex-direction: column;
