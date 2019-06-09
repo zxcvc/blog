@@ -28,7 +28,7 @@
         <h5 class="text-danger text-center" v-show="error">{{tips}}</h5>
       </form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取消</el-button>
+        <el-button @click="dialogFormVisible=false; error = false">取消</el-button>
         <el-button type="primary" @click="check">登录</el-button>
         <el-button type="warning" @click="toRegister">还没账号 点击注册</el-button>
       </div>
@@ -64,8 +64,12 @@ export default {
       }
   },
   methods: {
+    // cancel(){
+    //   this.dialogFormVisible = false
+    //   this.error = false
+    // },
     check() {
-      this.asyncCheck();
+      this.asyncCheck()
     },
 
     async asyncCheck() {
@@ -78,26 +82,46 @@ export default {
         this.$qs.stringify(userinfo)
       );
 
-      let data = ret.data;
+      if(!this.username){
+        this.tips = '请输入用户名'
+        this.error = true
+        return
+      }
+
+      if(!this.password){
+        this.tips = '请输入密码'
+        this.error = true
+        return
+      }
+
+      let data = ret.data
       if (!data.success) {
-        this.error = true;
-        this.tips = data.msg;
-        return;
+        this.error = true
+        this.tips = data.msg
+        return
       }
 
       localStorage.setItem("user", JSON.stringify({username:data.username}));
-      this.success = true;
+      this.success = true
       this.error = false
       clearTimeout(this.timeId);
       this.timeId = setTimeout(() => {
-        this.$emit("toLogOut");
-        this.dialogFormVisible = false;
-        this.success = false;
+        this.$emit("toLogOut")
+        this.dialogFormVisible = false
+        this.success = false
+        this.error = false
+        this.username = ''
+        this.password = ''
+        this.tips = ''
         clearTimeout(this.timeId);
       }, 1000);
     },
 
     toRegister() {
+      this.username = ''
+      this.password = ''
+      this.error = false
+      this.tips = ''
       this.dialogFormVisible = false;
       this.$router.push("/register");
     }
@@ -110,4 +134,5 @@ export default {
     width: 60%;
     margin: 0 auto;
   }
+
 </style>

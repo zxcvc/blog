@@ -46,6 +46,6 @@ export default {
     bottom: 0;
     display: block;
     position: fixed;
-  }
+  }  
 }
 </style>
