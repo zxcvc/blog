@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div id="bs-example-navbar-collapse-1">
         <ul class="nav nav-tabs navbar-default" id="ul">
             <router-link to="/home" tag="li"><a>主页</a></router-link>
             <router-link to="/allArticles" tag="li"><a>所有文章</a></router-link>
