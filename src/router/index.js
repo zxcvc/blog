@@ -4,13 +4,14 @@ Vue.use(Router)
 import store from '../../store/store'
 export default new Router({
 
+    linkActiveClass:'active',
     routes: [{
             path: '/',
             redirect: '/home'
         },
         {
             path: '/home',
-            component: () => import('../views/home.vue')
+            component: () => import('../views/home.vue'),
         },
         {
             path: '/allArticles',

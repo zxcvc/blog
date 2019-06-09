@@ -1,56 +1,25 @@
 <template>
-  <nav class="navbar navbar-default">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <button
-          type="button"
-          class="navbar-toggle collapsed"
-          data-toggle="collapse"
-          data-target="#bs-example-navbar-collapse-1"
-          aria-expanded="false"
-        >
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav" id="ul">
-          <li>
-            <router-link to="/home">主页</router-link>
-          </li>
-          <li>
-            <router-link to="/allArticles">所有文章</router-link>
-          </li>
-          <li>
-            <router-link to="/messageboard">留言</router-link>
-          </li>
-          <li>
-            <router-link to="/albumcard">相册</router-link>
-          </li>
-          <li>
+        <ul class="nav nav-tabs navbar-default" id="ul">
+            <router-link to="/home" tag="li"><a>主页</a></router-link>
+            <router-link to="/allArticles" tag="li"><a>所有文章</a></router-link>
+            <router-link to="/messageboard" tag="li"><a>留言</a></router-link>
+            <router-link to="/albumcard" tag="li"><a>相册</a></router-link>
+          <div class="other">
+            <router-link to="/addArticle" class="add">
+              <span class="glyphicon glyphicon-edit"></span>
+            </router-link>
+          </div>
+          <div class="other">
             <a href="#" id="last">
               <login @toLogOut="toLogOut" v-if="componentId==='login'"></login>
               <logout @toLogIn="toLogIn" v-if="componentId==='logout'"></logout>
             </a>
-          </li>
-          <li>
-            <router-link to="/addArticle" class="add">
-              <span class="glyphicon glyphicon-edit"></span>
-            </router-link>
-          </li>
-        </ul>
-        <!-- <form class="navbar-form navbar-right">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="请输入关键字">
           </div>
-          <button type="submit" class="btn btn-default">搜索</button>
-        </form>-->
+        </ul>
       </div>
     </div>
-  </nav>
 </template>
 
 <script>
@@ -78,14 +47,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// nav{
-//   border: 0!important;
-// }
-#bs-example-navbar-collapse-1 {
+.container-fluid{
+  padding: 0;
+  margin-bottom: 20px;
+  #bs-example-navbar-collapse-1 {
+  width: 100%;
+  padding: 0;
   #ul {
     display: flex;
     align-items: center;
+    width: 100%;
+    padding: 0 2%;
     li {
+      margin: 0 1%;
       display: flex;
       align-items: center;
       font-size: 16px;
@@ -93,19 +67,18 @@ export default {
         padding-top: 0;
         padding-bottom: 0;
       };
+    };
+    .other{
+      margin: 0 2%;
       .add{
-        font-size: 18px;
+        font-size: 20px;
         color: rebeccapurple;
       }
     }
   }
 }
-.nav navbar-nav .navbar-right {
-  ul {
-    li {
-      font-size: 50px;
-    }
-  }
 }
+
+
 
 </style>
