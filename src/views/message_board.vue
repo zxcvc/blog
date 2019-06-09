@@ -42,6 +42,10 @@ export default {
         async publish() {
             let user = localStorage.getItem("user") || JSON.stringify({ username: '匿名' })
             this.username = JSON.parse(user).username;
+            if(!this.msg){
+                this.open('请输入内容','error',1500)
+                return
+            }
             let message_info = {
                 message: this.msg,
                 time: new Date(),
@@ -50,6 +54,7 @@ export default {
             let ret = await this.$axios.post('/api/addMessage', this.$qs.stringify(message_info))
             if (ret) {
                 this.username = ''
+                this.msg = ''
                 this.open('留言成功', 'success', 1500)
             } else {
                 this.open('留言失败 请稍后重试', 'error', 1500)
@@ -58,10 +63,11 @@ export default {
         async get_message() {
             let ret = await this.$axios.get('/api/getMessage')
             this.messages = ret.data
-        }
+        },
     },
     created() {
         this.get_message()
+        this.publish = this.throttle(this.publish,1500)
     }
 };
 </script>

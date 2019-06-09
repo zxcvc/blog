@@ -64,10 +64,6 @@ export default {
       }
   },
   methods: {
-    // cancel(){
-    //   this.dialogFormVisible = false
-    //   this.error = false
-    // },
     check() {
       this.asyncCheck()
     },
@@ -125,6 +121,9 @@ export default {
       this.dialogFormVisible = false;
       this.$router.push("/register");
     }
+  },
+  created(){
+    this.check = this.throttle(this.check,1500)
   }
 }
 </script>

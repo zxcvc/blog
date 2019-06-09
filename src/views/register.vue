@@ -5,7 +5,7 @@
         <div class="form-group">
           <label for="username">用户名</label>
           <input type="text" class="form-control" id="username" autocomplete="off"
-            v-model="username" @change="haveusername">
+            v-model="username" @input="haveusername">
           <strong class="text-danger" v-show="have">用户名已存在</strong>
         </div>
         <div class="form-group">
@@ -82,6 +82,9 @@ export default {
       });
       this.have = ret.data.have;
     }
+  },
+  created(){
+    this.register = this.throttle(this.register,1500)
   }
 };
 </script>

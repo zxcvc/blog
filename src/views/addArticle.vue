@@ -90,7 +90,8 @@ export default {
     },
   },
   created() {
-    this.getAuthor();
+    this.getAuthor()
+    this.addArticle = this.throttle(this.addArticle,1500)
   }
 };
 </script>

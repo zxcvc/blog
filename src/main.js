@@ -10,6 +10,10 @@ import lazyload from 'vue-lazyload'
 import 'vue-photo-preview/dist/skin.css'
 import qs from 'qs'
 import {
+    debounce,
+    throttle
+} from 'lodash'
+import {
     card,
     button,
     form,
@@ -40,6 +44,8 @@ Vue.use(dropdownItem)
 Vue.use(lazyload, {
     loading: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558333261095&di=fa650d5707f50387f99a7934326c94e2&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20160127%2Fmp56791937_1453886827459_16.gif'
 })
+Vue.prototype.throttle = throttle
+Vue.prototype.debounce = debounce
 Vue.prototype.$Message = Message
 axios.defaults.headers = {
     'Content-Type': 'application/x-www-form-urlencoded'
